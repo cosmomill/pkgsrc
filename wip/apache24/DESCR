@@ -1,0 +1,22 @@
+The Apache HTTP Server Project is an effort to develop and maintain an
+open-source HTTP server for various modern desktop and server operating
+systems, such as UNIX and Windows NT.  The goal of this project is to
+provide a secure, efficient and extensible server which provides HTTP
+services in sync with the current HTTP standards.
+
+This package adds support for Unix domain sockets (UDS) to mod_proxy.
+http://mail-archives.apache.org/mod_mbox/httpd-dev/201207.mbox/%3C20120731200351.GB11038@gmail.com%3E
+
+So the host portion of the URL contains "socket=" followed by the URI
+encoded socket path (upper case characters must be encoded too). Below
+are a couple of examples where PHP-FPM's socket is /tmp/php-fpm.sock
+and the document root is /local/htdocs:
+
+ProxyPass fcgi://socket=%2ftmp%2fphp-fpm.sock/local/htdocs/
+
+RewriteRule (.*\.php) fcgi://socket=\%2ftmp\%2fphp-fpm.sock/local/htdocs/$1 [P,L]
+
+The following are not contained in the patch:
+* bump MMN due to mod_proxy.h changes
+* assign APLOGNO numbers
+* detection of AF_UNIX support in configure
