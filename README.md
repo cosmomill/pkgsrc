@@ -17,7 +17,7 @@ Trying packages
 Change to the package's directory:
 
 <pre>
-cd /usr/pkgsrc/wip/<packagename>
+cd /usr/pkgsrc/wip/packagename
 </pre>
 
 Take a look at the TODO file there. If the package seems finished enough, install, and try it out:
